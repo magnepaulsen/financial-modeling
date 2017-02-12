@@ -298,8 +298,7 @@ def calcMean(X):
         xMean = zeros(X.shape[1], Float)
 
         for i in xrange(X.shape[1], Float):
-            xMean[i] = sum(X[:, i])
-        
+            xMean[i] = sum(X[:, i])        
         return xMean  / X.shape[0]
 
         
@@ -311,15 +310,14 @@ def calcStDev(X):
     t=1,...,T of a Txn-matrix X. 
     """
     
-    stDev = np.zeros(X.shape[1])
+    stDev = np.zeros(X.shape[0])
     mean = calcMean(X)
-        
+    
     #Calculates the sample standard deviation
     #for each timestep:
     
-    #for i in range(len(stDev)):
-        #stDev[i] = np.sqrt((sum(X[i,] - mean[i])**2)/(X.shape[1]-1))
-        #<<TBC>>
+    for i in range(len(stDev)):
+        stDev[i] = np.sqrt((sum(X[i,] - mean[i])**2)/(X.shape[1]-1))
     return stDev
 
 
